@@ -20,7 +20,7 @@ TEST_FLAGS ?= -v -cover# -race
 
 .PHONY: falcoctl
 falcoctl:
-	$(GO) build -ldflags \
+	CGO_ENABLED=0 $(GO) build -ldflags \
     "-X '${PROJECT}/cmd/version.semVersion=${RELEASE}' \
     -X '${PROJECT}/cmd/version.gitCommit=${COMMIT}' \
     -X '${PROJECT}/cmd/version.buildDate=${BUILD_DATE}'" \
